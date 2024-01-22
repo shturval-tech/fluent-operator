@@ -1,4 +1,3 @@
-
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -10,6 +9,18 @@ rules:
   - apps
   resources:
   - daemonsets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - statefulsets
   verbs:
   - create
   - delete
@@ -40,6 +51,82 @@ rules:
   - ""
   resources:
   - serviceaccounts
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - fluentbit.fluent.io
+  resources:
+  - clusterfilters
+  - clusterinputs
+  - clustermultilineparsers
+  - clusteroutputs
+  - clusterparsers
+  verbs:
+  - list
+- apiGroups:
+  - fluentbit.fluent.io
+  resources:
+  - clusterfluentbitconfigs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - fluentbit.fluent.io
+  resources:
+  - collectors
+  - filters
+  - fluentbitconfigs
+  - fluentbits
+  - inputs
+  - outputs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - fluentbit.fluent.io
+  resources:
+  - filters
+  - fluentbitconfigs
+  - fluentbits
+  - inputs
+  - outputs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - fluentbit.fluent.io
+  resources:
+  - filters
+  - multilineparsers
+  - outputs
+  - parsers
+  verbs:
+  - list
+- apiGroups:
+  - fluentbit.fluent.io
+  resources:
+  - fluentbitconfigs
   verbs:
   - create
   - delete
@@ -128,43 +215,6 @@ rules:
   - get
   - patch
   - update
-- apiGroups:
-  - fluentbit.fluent.io
-  resources:
-  - filters
-  - fluentbitconfigs
-  - fluentbits
-  - inputs
-  - outputs
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - fluentbit.fluent.io
-  resources:
-  - filters
-  - inputs
-  - outputs
-  - parsers
-  verbs:
-  - list
-- apiGroups:
-  - fluentbit.fluent.io
-  resources:
-  - fluentbitconfigs
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
 - apiGroups:
   - rbac.authorization.k8s.io
   resources:
