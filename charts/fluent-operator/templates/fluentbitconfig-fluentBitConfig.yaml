@@ -23,6 +23,9 @@ spec:
   parserSelector:
     matchLabels:
       fluentbit.fluent.io/enabled: "true"
+  multilineparserSelector:
+    matchLabels:
+      fluentbit.fluent.io/enabled: "true"
   outputSelector:
     matchLabels:
       fluentbit.fluent.io/enabled: "true"
